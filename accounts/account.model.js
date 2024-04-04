@@ -24,15 +24,19 @@ function model(sequelize) {
         }
     };
 
-    const  options = {
+    const options = {
+        // Disable default timestamp fields (createdAt and updatedAt)
         timestamps: false,
+        // Exclude password hash by default
         defaultScope: {
             attributes: { exclude: ['passwordHash'] }
         },
         scopes: {
+            // include hash with this scope
             withHash: { attributes: {}, }
-        }
-    };
+            }
+        };
+            
+            return sequelize.define('account', attributes, options);
 
-    return sequelize.define('account', attributes, options);
-}
+    };
