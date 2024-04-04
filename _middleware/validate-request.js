@@ -3,7 +3,7 @@ module.exports = validateRequest;
 function validateRequest(req, next, schema) {
     const options = {
         abortEarly: false,
-        allowUnknown: true,
+        allowUnknown: true, 
         stripUnknown: true 
     };
 
@@ -13,5 +13,6 @@ function validateRequest(req, next, schema) {
     } else {
         req.body = value;
         next();
+
     }
 }
